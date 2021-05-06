@@ -1,0 +1,59 @@
+\documentclass[../main.tex]{subfiles}
+
+\newcommand{\tema}{\textbf{SENSITIVITY ANALYSIS}}
+\begin{document}
+
+\input{header.tex}
+
+\begin{questions}
+\question % Gupta EXERCISES 6.6-10
+Determinar los rangos sobre los cuales pueden cambiar los requerimientos de lado derecho en el siguiente problema
+
+
+ \[\max Z = 3x_1 + 4x_2 + x_3 + 7x_4 \]
+
+{\centering
+sujeto a 
+
+\sysdelim..%
+\sysalign{r,r}%
+\systeme[x_1x_2x_3x_4]%
+{%
+8x_1 + 3x_2 + 4x_3 + x_4  \leq 7,
+2x_1 + 6x_2 + 1x_3 + 5x_4  \leq 3,
+x_1 + 4x_2 + 5x_3 + 2x_4  \leq 8
+}
+
+\vspace{3mm}
+$x_1, x_2, x3, x4 \geq 0$
+\par}
+
+\question % Gupta EXERCISES 6.6-13
+Resolver el siguiente problema
+
+\[\max Z = x_1 + 1.5x_2\]
+
+{\centering
+sujeto a 
+
+\sysdelim..%
+\sysalign{r,r}%
+\systeme[x_1x_2]%
+{%
+2x_1  + 2x_2  \leq 160,
+x_1  + 2x_2  \leq 120,
+4x_1 + 2x_2 \leq 280
+}
+
+\vspace{3mm}
+$x_1, x_2\geq 0$
+\par}
+
+\begin{parts}
+\part ¿Cuáles son los valores del coeficiente $x_2$ en la función objetivo para que la solución siga siendo óptima?
+\part Determinar el rango óptimo para $c_1$
+\end{parts}
+
+
+\end{questions}
+\end{document}
