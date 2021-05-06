@@ -1,0 +1,38 @@
+\documentclass[../main.tex]{subfiles}
+
+\newcommand{\tema}{\textbf{SENSITIVITY ANALYSIS}}
+\begin{document}
+
+\input{header.tex}
+% ============================
+% DELETION OF A VARIABLE
+% ============================
+\begin{questions}
+  \question % Gupta EXERCISES 6.6-47
+  
+Solve the problem
+
+\[ \max Z = 3x_1 + 4x_2 + x_3 + 7x_4\]
+
+{\centering
+  subject to
+  \vspace{2mm}
+
+  \sysdelim..%
+  \sysalign{r,r}%
+  \systeme[x_1x_2x_3x_4]%
+  {%
+    8x_1 + 3x_2 + 4x_3 + x_4 \leq 7,
+    2x_1 + 6x_2 + x_3 + 5x_4 \leq 3,
+    x_1 + 4x_2 + 5x_3 + 2x_4 \leq 8
+  }
+  \vspace{2mm}
+
+  $x_1, x_2, x_3, x_4 \geq 0$
+  \par}
+
+\vspace{3mm}
+
+Discuss the effect of deleting variable $x_4$ on the optimal solution.
+\end{questions}
+\end{document}

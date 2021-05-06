@@ -1,0 +1,70 @@
+\documentclass[../main.tex]{subfiles}
+
+\newcommand{\tema}{\textbf{SENSITIVITY ANALYSIS}}
+\begin{document}
+
+\input{header.tex}
+% ============================
+% ADD NEW VARIABLE
+% ============================
+\begin{questions}
+\question % Gupta EXERCISES 6.6-24
+
+A manufacturing company produces two products, each of which requires stamping, assembly and painting operations. Total productive capacity by operation if it were devoted solely to one product or the other is
+
+{\centering
+  \begin{tabular}{ccc}
+    \toprule
+    Operation& \multicolumn{2}{c}{Productive Capacity (Units / week)} \\
+    \cmidrule{2-3}
+             &Product A& Product B \\
+    \midrule
+    Stamping & 500 & 700\\
+    Assembly & 650 & 330\\
+    Painting & 450 & 700\\
+       \bottomrule
+  \end{tabular}
+  \par}
+
+Demand for the two products is unlimited and the profits on A and B are \$ 20 and \$ 15 respectively. The company wants to expand its product line. Its marketing manager has determined that there is an unlimited market for a third product C. The productive capacity for
+this product is
+
+{\centering
+  \begin{tabular}{cc}
+    \toprule
+    Operation& Product C (Units / week) \\
+    \midrule
+    Stamping & 200 \\
+    Assembly & 180 \\
+    Painting & 120 \\
+       \bottomrule
+  \end{tabular}
+  \par}
+
+The unit profit for product C is estimated to be \$ 16. Should the company extend its product line by including product C ?
+
+
+\begin{solution}{}
+  \[\max Z = 3x_1 + 3x_2 + 4x_3 + 7x_4 \]
+
+{\centering
+subject to
+
+\sysdelim..%
+\sysalign{r,r}%
+\systeme[x_1x_2x_3x_4]%
+{%
+x_1 + x_2 + x_3 + x_4  \leq 9,
+5x_1 + 3x_2 + 2x_3 + x_4  \leq 60,
+x_1 + 3x_2 + 5x_3 + 8x_4  \leq 50
+}
+
+\vspace{3mm}
+$x_1, x_2, x3, x4 \geq 0$
+\par}
+
+\end{solution}
+
+
+\end{questions}
+\end{document}

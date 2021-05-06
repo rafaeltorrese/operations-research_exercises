@@ -1,0 +1,95 @@
+\documentclass[../main.tex]{subfiles}
+
+\newcommand{\tema}{\textbf{SENSITIVITY ANALYSIS}}
+\begin{document}
+
+\input{header.tex}
+% ============================
+% CHANGES IN THE COEFFICIENTS OF THE CONSTRAINTS
+% ============================
+\begin{questions}
+\question % Gupta EXERCISES 6.6-28
+
+Consider the problem
+
+\[ \max Z = 3x_1  + 2x_2 + 5x_3\]
+
+
+{\centering
+  subject to
+
+  \sysdelim..%
+  \sysalign{r,r}%
+  \systeme[x_1x_2x_3]%
+  {%
+    x_1 + 2x_2 + x_3 \leq 430,
+    3x_1 + 2x_3 \leq 460,
+    x_1 + 4x_2 \leq 420
+  }
+
+  \vspace{3mm}
+
+  $x_1, x_2, x_3 \geq 0$
+  \par}
+
+The optimal solution to this problem is given by the following table:
+
+{\centering
+  \begin{tabular}{crrrrrrrr}
+    \toprule
+    $c_B$&Basis&$x_1$&$x_2$&$x_3$&$s_1$&$s_2$&$s_3$&b\\
+    \midrule
+    2&$x_2$&\nicefrac{-1}{4}&1&0&\nicefrac{1}{2}&\nicefrac{-1}{4}&0&100\\
+    5&$x_3$&\nicefrac{3}{2}&0&1&0&\nicefrac{1}{2}&0&230\\
+    0&$s_3$&2&0&0&$-2$&1&1&20\\
+    \midrule
+    $Z_j = \sum c_Ba_{ij}$& &7&2&5&1&2&0&\\
+    $\overline{c_j} = c_j - Z_j$& &$-4$&0&0&$-1$&$-2$&0&\\
+    \bottomrule
+  \end{tabular}
+  \par}
+
+Suppose that the constraint coefficients of $x_1$-colum are changed from $[1, 3, 1]^{T}$ to $[1, 1, 6]^{T}$ int the starting matrix and profit coefficients of $x_2$ and $x_3$ are changed from $[2, 5]$ to $[1, 3]$ find the new optimal solution.
+\vspace{5mm}
+
+\question % Gupta EXERCISES 6.6-32
+Consider the following L.P.P.:
+
+\[ \max Z = 20x_1 + 10x_2 \]
+
+{\centering
+  subject to
+
+  \vspace{3mm}
+
+  \sysdelim..%
+  \sysalign{r,r}%
+  \systeme[x_1x_2]%
+  {%
+    x_1 + 2x_2  \leq 40,
+    3x_1 + 2x_2 \leq 60
+  }
+
+  \vspace{3mm}
+
+  $x_1, x_2 \geq 0$
+  \par}
+
+
+
+Find the optimal solution. Also determine the optimal solution if $x_2$-column changes from %
+$
+\begin{bmatrix}
+  2\\
+  2\\
+\end{bmatrix}
+$
+to %
+$
+\begin{bmatrix}
+  2\\
+  1\\
+\end{bmatrix}
+$
+\end{questions}
+\end{document}

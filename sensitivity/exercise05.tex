@@ -1,0 +1,70 @@
+\documentclass[../main.tex]{subfiles}
+
+\newcommand{\tema}{\textbf{SENSITIVITY ANALYSIS}}
+\begin{document}
+
+\input{header.tex}
+% ============================
+% ADDITION OF A NEW CONSTRAINT
+% ============================
+\begin{questions}
+\question % Gupta EXERCISES 6.6-41
+
+Consider the following table which represents an optimal solution to some L.P.P.:
+
+{\centering
+  \begin{tabular}{crrrrrrrrrr}
+    \toprule
+    &$c_j$&2&4&1&3&2&0&0&0&\\
+    \midrule
+    $c_B$&Basis&$x_1$&$x_2$&$x_3$&$x_4$&$x_5$&$x_6$&$x_7$ &$x_8$& b\\
+    \midrule
+    2&$x_1$&1&0&0&$-1$&0&\nicefrac{1}{2}&\nicefrac{1}{5}&$-1$&3\\
+    4&$x_2$&0&1&0&2&1&$-1$&0&\nicefrac{1}{2}&1\\
+    1&$x_3$&0&0&1&$-1$&$-2$&5&$\nicefrac{-3}{10}$&2&7\\
+    \midrule
+    %$Z_j = \sum c_Ba_{ij}$& &7&2&5&1&2&0&\\
+    &$\overline{c_j} = c_j - Z_j$ &0&0&0&$-2$&0&$-2$&$\nicefrac{-1}{10}$&$-2$&17\\
+    \bottomrule
+  \end{tabular}
+  \par}
+
+If the additional constraint $2x_1 + 3x_2 - x_3 + 2x_4 + 4 x_5 \leq 5$ is annexed to the system, will there be any change in the optimal solution? Justify your answer.
+
+\vspace{5mm}
+
+\question % Gupta EXERCISES 6.6-43
+A firm produces three items A, B, and C and requires two types of resources --man hours and raw matrial. The following L.P. problem has been formulated to determine the optimum production schedule that maximizes the total profit:
+
+\[ \max Z = 3y_1 + y_2 + 5y_3\]
+
+{\centering
+  subject to
+  \vspace{2mm}
+
+  \sysdelim..%
+  \sysalign{r,r}%
+  \systeme[y_1y_2y_3]%
+  {%
+    6y_1 + 3y_2 + 5y_3 \leq 45@ (man-hours),
+    3y_1 + 4y_2 + 5y_3 \leq 30@ (raw material)
+  }
+  \vspace{2mm}
+
+  $y_1, y_2, y_3 \geq 0$
+  \par}
+
+\vspace{3mm}
+
+where $y_1, y_2, y_3$ are the number of items A, B, and C. Find the optimal solution.
+\vspace{3mm}
+
+\begin{parts}
+  \part Find the range on the unit profit of product A. If $c = 4$, what is the optimal solution?
+  \part If additional 10 units of raw material can be obtained at a cost of \$ 12, is it profitable to do so?
+  \part If the available raw material is increased to 50 units, what is the optimal solution?
+  \part Due to ``technological breakthrough'' the raw material required by part B is reduced to 2 units. Will affect the optimal solution?
+  \part If a supervision constraint, $2y_1 + y_2 + 3y_3 \leq 20$ is added to the original problem, how is the optimal solution affected?
+\end{parts}
+\end{questions}
+\end{document}
