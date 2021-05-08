@@ -2,7 +2,7 @@
 
 \newcommand{\tema}{\textbf{SENSITIVITY ANALYSIS}}
 \begin{document}
-
+\printanswers
 \input{header.tex}
 % ============================
 % ADDITION OF A NEW CONSTRAINT
@@ -31,6 +31,12 @@ Consider the following table which represents an optimal solution to some L.P.P.
 
 If the additional constraint $2x_1 + 3x_2 - x_3 + 2x_4 + 4 x_5 \leq 5$ is annexed to the system, will there be any change in the optimal solution? Justify your answer.
 
+
+\begin{solution}{}
+  Sustituyendo los valores de $x_1, x_2, x_3$ en la restricción que se desea agregar se tiene que \[ 2(3) + 3(1) - 7+ 0 + 0 = 6 + 3 - 7 + 0 +0 = 2 \]
+
+  Los valores de la solución óptima satisfacen la nueva restricción ($2 \leq 5$) por lo tanto no hay cambio en el sistema
+\end{solution}
 \vspace{5mm}
 
 \question % Gupta EXERCISES 6.6-43
@@ -47,7 +53,7 @@ A firm produces three items A, B, and C and requires two types of resources --ma
   \systeme[y_1y_2y_3]%
   {%
     6y_1 + 3y_2 + 5y_3 \leq 45@ (man-hours),
-    3y_1 + 4y_2 + 5y_3 \leq 30@ (raw material)
+    3y_1 + 4y_2 + 5y_3 \leq 30@ (\text{raw material})
   }
   \vspace{2mm}
 
@@ -60,7 +66,7 @@ where $y_1, y_2, y_3$ are the number of items A, B, and C. Find the optimal solu
 \vspace{3mm}
 
 \begin{parts}
-  \part Find the range on the unit profit of product A. If $c = 4$, what is the optimal solution?
+  \part Find the range on the unit profit of product A. If $c_1 = 4$, what is the optimal solution?
   \part If additional 10 units of raw material can be obtained at a cost of \$ 12, is it profitable to do so?
   \part If the available raw material is increased to 50 units, what is the optimal solution?
   \part Due to ``technological breakthrough'' the raw material required by part B is reduced to 2 units. Will affect the optimal solution?

@@ -2,7 +2,7 @@
 
 \newcommand{\tema}{\textbf{SENSITIVITY ANALYSIS}}
 \begin{document}
-
+\printanswers
 \input{header.tex}
 % ============================
 % ADD NEW VARIABLE
@@ -45,24 +45,106 @@ The unit profit for product C is estimated to be \$ 16. Should the company exten
 
 
 \begin{solution}{}
-  \[\max Z = 3x_1 + 3x_2 + 4x_3 + 7x_4 \]
+  Las variables de decisión son las unidades a producir de A y B, denotadas con las variables $x_1$ y $x_2$ respectivamente.  El modelo inicial es el siguiente
+  
+  \[\max Z = 20x_1 + 15x_2  \]
+
+  \begin{align*}
+    \frac{x_1}{500} + \frac{x_2}{700}   &\leq 1\\[3mm]
+\frac{x_1}{650} + \frac{x_2}{330}  &\leq 1\\[3mm]
+    \frac{x_1}{450} + \frac{x_2}{700}   &\leq 1\\[3mm]
+    x_1, x_2 &\geq 0
+  \end{align*}
+  
+
+La solución óptima para este problem se muestra en la siguiente tabla
 
 {\centering
-subject to
-
-\sysdelim..%
-\sysalign{r,r}%
-\systeme[x_1x_2x_3x_4]%
-{%
-x_1 + x_2 + x_3 + x_4  \leq 9,
-5x_1 + 3x_2 + 2x_3 + x_4  \leq 60,
-x_1 + 3x_2 + 5x_3 + 8x_4  \leq 50
-}
+  \begin{tabular}{rrrrrrrr}
+    \toprule
+    &&20&	15&	0&	0&	0&	\\
+    \midrule
+    $c_B$&	basis&	$x_1$&	$x_2$&	$s_1$&	$s_2$&	$s_3$&	\textbf{b}\\
+    \midrule
+0&	$s_1$&	0&	0&	1&	-0.069984&	-0.852&	0.078\\
+15&	$x_2$&	0&	1&	0&	489.885808&	-339.152&	150.734\\
+    20&	$x_1$&	1&	0&	0&	-314.927&	668.026&	353.099\\
+    \midrule
+	&$Z_j$&	20&	15&	0&	1049.755&	8273.246&	9323.00\\
+    &$c_j - Z_j$&	0&	0&	0&	-1049.755&	-8273.246&\\
+    \bottomrule
+  \end{tabular}
+  \par}
 
 \vspace{3mm}
-$x_1, x_2, x3, x4 \geq 0$
-\par}
 
+La matriz base $\pmb{B}$ se compone de los vectores correspondientes a \textbf{las variables básicas} $s_1, x_2, x_1$ en el problema en su forma estándar como se ve en la tabla siguiente
+
+\newpage
+{\centering
+  \begin{tabular}{rrrrrrrr}
+    \toprule
+    &&20&	15&	0&	0&	0&	\\
+    \midrule
+    $c_B$&	basis&	$x_1$&	$x_2$&	$s_1$&	$s_2$&	$s_3$&	\textbf{b}\\
+    \midrule
+0&	$s_1$&	\nicefrac{1}{500}&\nicefrac{1}{700}	&	1&	0&	0&	1\\
+0&	$s_2$&	\nicefrac{1}{650}&	\nicefrac{1}{330}&	0&	1&	0&	1\\
+    0&	$s_3$&	\nicefrac{1}{450}&	\nicefrac{1}{700}&	0&	0&	1&	1\\
+    \bottomrule
+  \end{tabular}
+  \par}
+
+la matriz base es $\pmb{B} =
+\begin{bmatrix}
+  1 & \nicefrac{1}{700} & \nicefrac{1}{500} \\
+  0 & \nicefrac{1}{330} & \nicefrac{1}{650} \\
+  0 & \nicefrac{1}{700} & \nicefrac{1}{450} \\
+\end{bmatrix}
+$
+y la matriz inversa de $\pmb{B}$ es $\pmb{B^{-1}} =
+\begin{bmatrix}
+1&	- 429/6130&	- 522/613 \\
+0&	300300/613 &	-207900/613 \\
+0&	-193050/613& 	409500/613 \\
+\end{bmatrix}
+$
+
+Los vectores que componen a $\pmb{B}$ son $ [\pmb{P_3}, \pmb{P_2}, \pmb{P_1}]$, esto es,  $\pmb{P_3} =
+\begin{bmatrix}
+  1\\
+  0\\
+  0\\
+\end{bmatrix},\;
+\pmb{P_2} =
+\begin{bmatrix}
+  \nicefrac{1}{700}\\
+  \nicefrac{1}{330}\\
+  \nicefrac{1}{700}\\
+\end{bmatrix},\;
+\pmb{P_1} =
+\begin{bmatrix}
+  \nicefrac{1}{500}\\
+  \nicefrac{1}{650}\\
+  \nicefrac{1}{450}\\
+\end{bmatrix}
+$
+
+Se debe recordar que \[ \overline{c_j} = c_j - Z_j = c_j - c_B \cdot B^{-1} \cdot P_j\] de la expresión anterior se define que \[\pmb{\pi} = c_B \cdot B^{-1} \]
+
+El cálculo de los multiplicadores simplex es $\pi = c_B \cdot B^{-1} = \left[0.00, 1049.76, 8273.25\right]$, entonces si $x_3$ es la nueva variable que se va a agregar al problema correspondiente al producto C tenemos que
+$Z_3 = \pi P_3 = \begin{bmatrix}
+  0,& 1049.755,& 8273.246\\
+\end{bmatrix}
+\begin{bmatrix}
+  \frac{1}{200}\\[2mm]
+  \frac{1}{180}\\[2mm]
+  \frac{1}{120}\\
+\end{bmatrix}
+ = 74.78
+ $
+ 
+por lo tanto $\overline{c_3} = c_3 - Z_3 = 16 - 74.78 = -58.78$ esto nos da $\overline{c_3} \leq 0$, \textbf{el problema es de maximización} entonces la solución sigue siendo óptima y por lo tanto no vale la pena incluir el producto C al modelo ya que no aporta ninguna mejora. 
 \end{solution}
 
 

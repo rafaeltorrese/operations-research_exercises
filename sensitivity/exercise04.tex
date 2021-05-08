@@ -1,6 +1,7 @@
 \documentclass[../main.tex]{subfiles}
 
 \newcommand{\tema}{\textbf{SENSITIVITY ANALYSIS}}
+\printanswers
 \begin{document}
 
 \input{header.tex}
@@ -37,6 +38,8 @@ The optimal solution to this problem is given by the following table:
 {\centering
   \begin{tabular}{crrrrrrrr}
     \toprule
+    &$c_j$&3&2&5&0&0&0&\\
+    \midrule
     $c_B$&Basis&$x_1$&$x_2$&$x_3$&$s_1$&$s_2$&$s_3$&b\\
     \midrule
     2&$x_2$&\nicefrac{-1}{4}&1&0&\nicefrac{1}{2}&\nicefrac{-1}{4}&0&100\\
@@ -49,9 +52,134 @@ The optimal solution to this problem is given by the following table:
   \end{tabular}
   \par}
 
-Suppose that the constraint coefficients of $x_1$-colum are changed from $[1, 3, 1]^{T}$ to $[1, 1, 6]^{T}$ int the starting matrix and profit coefficients of $x_2$ and $x_3$ are changed from $[2, 5]$ to $[1, 3]$ find the new optimal solution.
+Suppose that the constraint coefficients of $x_1$-colum are changed from $[1 \;,\; 3 \;,\; 1]^{T}$ to $[1 \;,\; 1 \;,\; 6]^{T}$ in the starting matrix and profit coefficients of $x_2$ and $x_3$ are changed from $[2\;, \; 5]$ to $[1\;,\; 3]$ find the new optimal solution.
 \vspace{5mm}
 
+
+\begin{solution}{}
+  Las particiones del problema (en forma estándar) son las siguientes:
+  
+  {\centering
+    \begin{tabular}{rrrrrr}
+      \toprule
+      $\pmb{P_1}$	&$\pmb{P_2}$&	$\pmb{P_3}$&	$\pmb{P_4}$&	$\pmb{P_5}$&	$\pmb{P_6}$\\
+      \midrule
+      $x_1$	&$x_2$&	$x_3$&	$s_1$&	$s_2$&	$s_3$\\
+      \midrule
+      1&	2&	1&	1&	0&	0\\
+      3&	0&	2&	0&	1&	0\\
+      1&	4&	0&	0&	0&	1\\
+      \bottomrule
+    \end{tabular}
+
+  \par}
+
+De la tabla óptima se sabe que la base está compuesta por $x_2, x_3, s_3$, por lo tanto las particiones que forman la  matriz base son $\pmb{P_2}, \pmb{P_3}, \pmb{P_6}$ como se muestra a continuación:
+
+{\centering
+    \begin{tabular}{rrrrrr}
+      \toprule
+      $\pmb{P_1}$	&\cellcolor{blue!30}$\pmb{P_2}$&	\cellcolor{blue!30}$\pmb{P_3}$&	$\pmb{P_4}$&	$\pmb{P_5}$&	\cellcolor{blue!30}$\pmb{P_6}$\\
+      \midrule
+      $x_1$	&\cellcolor{blue!30}$x_2$&	\cellcolor{blue!30}$x_3$&	$s_1$&	$s_2$&	\cellcolor{blue!30}$s_3$\\
+      \midrule
+      1&	\cellcolor{blue!30}2&	\cellcolor{blue!30}1&	1&	0&	\cellcolor{blue!30}0\\
+      3&	\cellcolor{blue!30}0&	\cellcolor{blue!30}2&	0&	1&	\cellcolor{blue!30}0\\
+      1&	\cellcolor{blue!30}4&	\cellcolor{blue!30}0&	0&	0&	\cellcolor{blue!30}1\\
+      \bottomrule
+    \end{tabular}
+
+  \par}
+
+Entonces $\pmb{B} =
+\begin{bmatrix}
+  2& 1& 0\\
+  0& 2& 0\\
+  4& 0& 1\\
+\end{bmatrix}
+$
+ y la matriz inversa de la base es $\pmb{B^{-1}} =
+ \begin{bmatrix}
+   \nicefrac{1}{2} & \nicefrac{-1}{4} & 0\\
+   0 & \nicefrac{1}{2} & 0\\
+   -2 & 1 & 1\\
+\end{bmatrix}
+$
+
+Al hacer el cambio en los coeficientes de las restricciones correspondientes a la variable $x_1$ los valores del nuevo vector $\pmb{P_1} =
+\begin{bmatrix}
+   1\\        
+ 1\\        
+ 6\\
+\end{bmatrix}
+$ en la tabla simplex óptima se calculan como \[ \overline{ \pmb{P_1}} = B^{-1} \cdot P_1 =%
+  \begin{bmatrix}
+   \nicefrac{1}{2} & \nicefrac{-1}{4} & 0\\
+   0 & \nicefrac{1}{2} & 0\\
+   -2 & 1 & 1\\
+ \end{bmatrix} %
+ \begin{bmatrix}
+   1\\        
+ 1\\        
+ 6\\
+\end{bmatrix}%
+=
+\begin{bmatrix}
+  \nicefrac{1}{4}   \\
+  \nicefrac{1}{2}   \\
+  5 \\
+\end{bmatrix}
+\]
+
+Al incluir el nuevo vector $ \overline{\pmb{P_1}} = \begin{bmatrix}
+  \nicefrac{1}{4}   \\
+  \nicefrac{1}{2}   \\
+  5 \\
+\end{bmatrix}$ en la tabla óptima y los nuevos valores de la función objetivo de $x_2, x_3 = [1 \;,\; 3]$ la nueva tabla simplex es
+
+
+{\centering
+  \begin{tabular}{rrrrrrrrr}
+    \toprule
+    &$c_j$	&3	&\cellcolor{blue!30}1&	\cellcolor{blue!30}3&	0&	0&	0&\\
+    \midrule
+    $c_B$&Basis&\cellcolor{blue!30}$x_1$&$x_2$&$x_3$&$s_1$&$s_2$&$s_3$&$\pmb{b}$\\
+      \midrule
+    1&	$x_2$& \cellcolor{blue!30}\nicefrac{1}{4}&   	1&	0&	   \nicefrac{1}{2}&   	\nicefrac{-1}{4}&   	0&	100\\
+    3&	$x_3$&	   \cellcolor{blue!30}\nicefrac{1}{2}&   	0&	1&	0&	   \nicefrac{1}{2}&   	0&	230\\
+    0&	$s_3$&	\cellcolor{blue!30}5&	0&	0&	-2&	1&	1&	20\\
+      \midrule
+	&$Z_j$&	\nicefrac{7}{4}&	1&	3&	\nicefrac{1}{2}&	\nicefrac{5}{4}&	0&	790\\
+      &$c_j - Z_j$&	\nicefrac{5}{4}&	0&	0&	\nicefrac{-1}{2}&	\nicefrac{-5}{4}&	0&\\
+      \toprule
+  \end{tabular}
+\par}
+
+Se aplica algoritmo simplex sobre la tabla simplex anterior porque $\overline{c_1} > 0$, por lo que la solución actual deja de ser óptima, recordemos que el problema es de tipo maximización entonces se requiere que $c_j - Z_j \leq 0$. Aplicando el algoritmo simplex la variable $x_1$ es la nueva variable que entra a la base y la variable que deja la base es $s_3$.
+
+La nueva tabla simplex con la solución óptima es:
+
+{\centering
+  \begin{tabular}{crrrrrrrr}
+    \toprule
+    &$c_j$&3&1&3&0&0&0&\\
+    \midrule
+    $c_B$&Basis&$x_1$&$x_2$&$x_3$&$s_1$&$s_2$&$s_3$&b\\
+    \midrule
+    1&$x_2$&0&1&0&\nicefrac{3}{5}&\nicefrac{-3}{10}&\nicefrac{-1}{20}&99\\
+    3&$x_3$&0&0&1&\nicefrac{1}{5}&\nicefrac{2}{5}&\nicefrac{-1}{10}&228\\
+    3&$x_1$&1&0&0&\nicefrac{-2}{5}&\nicefrac{1}{5}&\nicefrac{1}{5}&4\\
+    \midrule
+    $Z_j = \sum c_Ba_{ij}$& &7&2&5&1&2&0&\cellcolor{yellow}{795}\\
+    $\overline{c_j} = c_j - Z_j$& &$-4$&0&0&$-1$&$-2$&0&\\
+    \bottomrule
+  \end{tabular}
+  \par}
+
+note que $c_j - Z_j \leq 0$ por lo que la solución es óptima.
+\end{solution}
+
+% ========================================
 \question % Gupta EXERCISES 6.6-32
 Consider the following L.P.P.:
 
@@ -91,5 +219,104 @@ $
   1\\
 \end{bmatrix}
 $
+
+\begin{solution}{}
+  La tabla óptima es la siguiente:
+  
+  {\centering
+    \begin{tabular}{rrrrrrr}
+      \toprule
+      &$c_j$&	20&	10&	0&	0& \\
+      \midrule
+      $c_B$&	Basis&	$x_1$& $x_2$&	$s_1$&	$s_2$&	\textbf{b} \\
+      \midrule
+0&	$s_1$&	0&	   \nicefrac{4}{3}&   	1&	\nicefrac{-   1}{3}&   	20\\
+20&	$x_1$&	1&	   \nicefrac{2}{3}&   	0&	   \nicefrac{1}{3}&   	20\\
+	&$Z_j$&	20&	  \nicefrac{40}{3}&   	0&	  \nicefrac{20}{3}&   	\cellcolor{yellow}400\\
+      &$c_j - Z_j$&	0&	\nicefrac{-10}{3}&   	0&	\nicefrac{-20}{3}&   \\
+      \toprule
+    \end{tabular}
+  \par}	
+
+ La matriz $\pmb{B^{-1}} =
+ \begin{bmatrix}
+   1 & \nicefrac{-1}{3}\\   
+   0 &  \nicefrac{1}{3} \\
+ \end{bmatrix}
+ $
+
+ El vector $\overline{\pmb{P_2}} = B^{-1} \cdot P_2 = %
+  \begin{bmatrix}
+   1 & \nicefrac{-1}{3}\\   
+   0 &  \nicefrac{1}{3} \\
+ \end{bmatrix}\cdot
+ \begin{bmatrix}
+   2\\
+   1\\
+ \end{bmatrix} =
+ \begin{bmatrix}
+   \nicefrac{5}{3}\\
+   \nicefrac{1}{3}\\
+ \end{bmatrix}
+ $
+ 
+Calculamos $\pmb{\pi} = c_B \cdot B^{-1} = %
+\begin{bmatrix}
+  0, & 20\\
+\end{bmatrix} 
+\begin{bmatrix}
+   1 & \nicefrac{-1}{3}\\   
+   0 &  \nicefrac{1}{3} \\
+ \end{bmatrix} =
+ \begin{bmatrix}
+   0, & \nicefrac{20}{3} \\
+ \end{bmatrix}
+ $
+ 
+ El valor de $\overline{c_2} = c_2 - Z_2 = c_2 - \pmb{\pi}\cdot P_2 = 10 - [0 \;,\; \nicefrac{20}{3}] \cdot
+ \begin{bmatrix}
+   2\\
+   1\\
+ \end{bmatrix} = 10 - \nicefrac{20}{3} = \nicefrac{10}{3}
+ $
+
+ {\centering
+    \begin{tabular}{rrrrrrr}
+      \toprule
+      &$c_j$&	20&	10&	0&	0& \\
+      \midrule
+      $c_B$&	Basis&	$x_1$& $x_2$&	$s_1$&	$s_2$&	\textbf{b} \\
+      \midrule
+0&	$s_1$&	0&	   \cellcolor{blue!30}\nicefrac{5}{3}&   	1&	\nicefrac{-   1}{3}&   	20\\
+      20&	$x_1$&	1&	   \cellcolor{blue!30}\nicefrac{1}{3}&   	0&	   \nicefrac{1}{3}&   	20\\
+      \midrule
+	&$Z_j$&	20&	  \nicefrac{20}{3}&   	0&	  \nicefrac{20}{3}&   	\cellcolor{yellow}400\\
+      &$c_j - Z_j$&	0&	\cellcolor{cyan!30}\nicefrac{10}{3}&   	0&	\nicefrac{-20}{3}&   \\
+      \toprule
+    \end{tabular}
+  \par}	
+
+ Como $\overline{c_2} > 0$ la solución deja de ser óptima (problema de maximización), se aplica método simplex con variable $x_2$ como variable que entra y $s_1$ como variable que sale.
+
+ La solución óptima al problema se muestra en la siguiente tabla simplex con $x_2$ en la base.
+
+ {\centering
+    \begin{tabular}{rrrrrrr}
+      \toprule
+      &$c_j$&	20&	10&	0&	0& \\
+      \midrule
+      $c_B$&	Basis&	$x_1$& $x_2$&	$s_1$&	$s_2$&	\textbf{b} \\
+      \midrule
+10&	$x_2$&	0&	   1&   	\nicefrac{3}{5}&	\nicefrac{-   1}{5}&   	12\\
+      20&	$x_1$&	1&	   0&   	\nicefrac{-1}{5}&	   \nicefrac{2}{5}&   	16\\
+      \midrule
+	&$Z_j$&	20&	  10&   	2&	  6&   	\cellcolor{yellow}440\\
+      &$c_j - Z_j$&	0&	0&   	$-2$&	$-6$&   \\
+      \toprule
+    \end{tabular}
+  \par}	
+
+ 
+\end{solution}
 \end{questions}
 \end{document}
