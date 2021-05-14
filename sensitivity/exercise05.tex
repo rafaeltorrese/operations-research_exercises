@@ -249,7 +249,50 @@ As you can see, it is not profitable increment the resource in the raw material 
   
   \end{solution}
   \part Due to ``technological breakthrough'' the raw material required by part B is reduced to 2 units. Will affect the optimal solution?
+  \begin{solution}{}
+
+    It will not affect. $x_2$ is a non-basic variable. The simplex multipliers are \[ \pmb{\pi} = c_B \cdot B^{-1} = \begin{bmatrix}
+        0 & 5
+      \end{bmatrix}
+      \begin{bmatrix}
+      1 & -1\\
+      0 & \nicefrac{1}{5}
+    \end{bmatrix} =
+    \begin{bmatrix}
+      0 & 1
+    \end{bmatrix}
+\]
+
+    then \[ \overline{c_2} = c_2 - Z_2 = c_2 - \pmb{\pi} P_2 = 1 -
+      \begin{bmatrix}
+        0 & 1
+      \end{bmatrix}
+    \begin{bmatrix}
+      3\\
+      2
+    \end{bmatrix} = 1 - 2 = -1
+  \] Since $\overline{c_2} \leq 0$ remains non-positive in the solution, therefore it will not affect the solution.
+
+  In general, \[ \overline{c_j} = c_j - Z_j = c_j - c_B \cdot B^{-1} \cdot P_j = 1 -
+      \begin{bmatrix}
+        0 & 5
+      \end{bmatrix}
+      \begin{bmatrix}
+      1 & -1\\
+      0 & \nicefrac{1}{5}
+    \end{bmatrix}
+    \begin{bmatrix}
+      3\\
+      2
+    \end{bmatrix} = 1 - 2 = -1
+  \]
+    
+  \end{solution}
   \part If a supervision constraint, $2y_1 + y_2 + 3y_3 \leq 20$ is added to the original problem, how is the optimal solution affected?
+  \begin{solution}
+
+    The optimal solution is not affected, the optimal solution is $s1 = 15$ and $y_3 = 6$, then when you add the constraint $2y_1 + y_2 + 3y_3 \leq 20$, and use the optimal solution we get \[ 2(0) + (0) + 3(6) = 18 \leq 20 \] therefore, the constraint is satisfied by the current optimal solution, so the optimal solution is not affected.
+  \end{solution}
 \end{parts}
 \end{questions}
 \end{document}

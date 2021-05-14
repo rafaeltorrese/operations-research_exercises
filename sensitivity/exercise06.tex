@@ -2,7 +2,7 @@
 
 \newcommand{\tema}{\textbf{SENSITIVITY ANALYSIS}}
 \begin{document}
-
+\printanswers
 \input{header.tex}
 % ============================
 % DELETION OF A VARIABLE
@@ -34,5 +34,68 @@ Solve the problem
 \vspace{3mm}
 
 Discuss the effect of deleting variable $x_4$ on the optimal solution.
+
+\begin{solution}{}
+
+  {\centering
+    \begin{tabular}{rrrrrrrrrr}
+      \toprule
+      &$c_j$&3&4&1&7&0&0&0&\\
+      \midrule
+      $c_B$&Basis&$x_1$&$x_2$&$x_3$&$x_4$&$s_1$&$s_2$&$s_3$&$\pmb{b}$\\
+      \midrule
+3&$x_1$&1&   9/38  &   1/2   &0&   5/38  &$-   1/38$  &0&  16/19  \\
+7&$x_4$&0&  21/19  &0&1&$-   1/19$  &   4/19  &0&   5/19  \\
+      0&$s_3$&0&  59/38  &   9/2   &0&$-   1/38$  &$-  15/38$  &1& 126/19  \\
+      \midrule
+&$Z_j$&3&321/38&3/2&7&1/38&53/38&0&83/19\\
+&$c_j - Z_j$&0&-169/38&-1/2&0&-1/38&-53/38&0&\\
+\toprule
+    \end{tabular}
+  \par}
+
+\vspace{5mm}
+Penalty on $x_4$ variable, then the simplex method should be be applied. $x_2$ entering to the basis and $x_4$ is leaving the basis.
+
+  {\centering
+    \begin{tabular}{rrrrrrrrrrr}
+      \toprule
+      &$c_j$&3&4&1&\cellcolor{cyan!40}$-1000$&0&0&0&&\\
+      \midrule
+      $c_B$&Basis&$x_1$&$x_2$&$x_3$&\cellcolor{cyan!40}$x_4$&$s_1$&$s_2$&$s_3$&$\pmb{b}$&\\
+      \midrule
+3&$x_1$&1&   9/38  &   1/2   &0&   5/38  &$-   1/38$  &0&  16/19 & \\
+7&$x_4$&0&  21/19  &0&1&$-   1/19$  &   4/19  &0&   5/19&\cellcolor{orange!30} \textrightarrow \\
+      0&$s_3$&0&  59/38  &   9/2   &0&$-   1/38$  &$-  15/38$  &1& 126/19&  \\
+      \midrule
+&$Z_j$&3&$-41973/38$&3/2&$-1000$&2015/38&$-8003/38$&0&83/19&\\
+      &$c_j - Z_j$&0&$-42125/38$&-1/2&0&$-2015/38$&8003/38&0&&\\
+      &&&\cellcolor{orange!30}\textuparrow&&&&&&&\\
+\toprule
+    \end{tabular}
+    \par}
+
+\vspace{5mm}
+
+  The new optimal table with $x_2$ in the basis is the following:
+  
+{\centering
+
+  \begin{tabular}{rrrrrrrrrr}
+      \toprule
+      &$c_j$&3&4&1&7&0&0&0&\\
+      \midrule
+      $c_B$&Basis&$x_1$&$x_2$&$x_3$&$x_4$&$s_1$&$s_2$&$s_3$&$\pmb{b}$\\
+      \midrule
+3&$x_1$&1&0&   1/2   &$-   3/14$  &   1/7   &$-   1/14$  &0&  11/14  \\
+4&\cellcolor{yellow}$x_2$&0&1&0&  19/21  &$-   1/21$  &   4/21  &0&   5/21  \\
+    0&$s_3$&0&0&   9/2   &$-  59/42$  &   1/21  &$-  29/42$  &1& 263/42  \\
+    \midrule
+&$Z_j$&3&4&   3/2   & 125/42  &   5/21  &  23/42  &0& 139/42  \\
+      &$c_j - Z_j$&0&0&$-   1/2$   &$-42125/42$  &$-   5/21$  &$-  23/42$  &0&\\
+    \toprule
+  \end{tabular}
+  \par}
+\end{solution}
 \end{questions}
 \end{document}
