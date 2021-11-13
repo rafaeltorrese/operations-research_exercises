@@ -1,6 +1,7 @@
 \documentclass[../main.tex]{subfiles}
 
 \newcommand{\tema}{\textbf{SENSITIVITY ANALYSIS}}
+%\printanswers
 \begin{document}
 
 \input{header.tex}
@@ -27,6 +28,77 @@ x_1 + 4x_2 + 5x_3 + 2x_4  \leq 8
 \vspace{3mm}
 $x_1, x_2, x_3, x_4 \geq 0$
 \par}
+
+\begin{solution}
+
+La base del problema se compone de las variables $x_1, x_4,  s_3$, por lo tanto la solución óptima del problema es
+\begin{flalign*}
+  x_1 & = \nicefrac{16}{19} \\
+  x_4 & = \nicefrac{5}{19} \\
+  s_3 & = \nicefrac{126}{19}\\
+  Z_{\max} & = \nicefrac{83}{19}
+\end{flalign*}
+
+La matriz inversa de la base del problema es
+
+\[
+  \bm{B^{-1}}  = %
+\begin{bmatrix}
+  \frac{5}{38} & -\frac{1}{38} & 0 \\[3mm]
+  -\frac{1}{19} & \frac{4}{19} & 0 \\[3mm]
+  -\frac{1}{38} & -\frac{15}{38} & 1 \\
+\end{bmatrix}
+\]
+
+El cálculo de $\Delta b_i$ se realiza relizando las siguientes operaciones:
+
+$\begin{bmatrix}
+  \frac{5}{38} & -\frac{1}{38} & 0 \\[3mm]
+  -\frac{1}{19} & \frac{4}{19} & 0 \\[3mm]
+  -\frac{1}{38} & -\frac{15}{38} & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+  7 + \Delta b_1\\[3mm] 3 \\[3mm] 8\\
+\end{bmatrix}
+\geq
+\begin{bmatrix}
+  0 \\[3mm] 0 \\[3mm] 0\\
+\end{bmatrix}
+$
+
+
+$\begin{bmatrix}
+  \frac{5}{38} & -\frac{1}{38} & 0 \\[3mm]
+  -\frac{1}{19} & \frac{4}{19} & 0 \\[3mm]
+  -\frac{1}{38} & -\frac{15}{38} & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+  7 \\[3mm] 3 + \Delta b_2 \\[3mm] 8\\
+\end{bmatrix}
+\geq
+\begin{bmatrix}
+  0 \\[3mm] 0 \\[3mm] 0\\
+\end{bmatrix}
+$
+
+$\begin{bmatrix}
+  \frac{5}{38} & -\frac{1}{38} & 0 \\[3mm]
+  -\frac{1}{19} & \frac{4}{19} & 0 \\[3mm]
+  -\frac{1}{38} & -\frac{15}{38} & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+  7 \\[3mm] 3 \\[3mm] 8 + \Delta b_3 \\
+\end{bmatrix}
+\geq
+\begin{bmatrix}
+  0 \\[3mm] 0 \\[3mm] 0\\
+\end{bmatrix}
+$
+
+
+
+\end{solution}
+
 
 \begin{solution}
 

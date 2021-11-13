@@ -1,7 +1,7 @@
 \documentclass[../main.tex]{subfiles}
 
 \newcommand{\tema}{\textbf{SENSITIVITY ANALYSIS}}
-\printanswers
+%\printanswers
 
 \begin{document}
 
@@ -68,7 +68,75 @@ sujeto a
   x_1, x_2, x_3, x_4 & \geq 0
 \end{align*}
 
-encontrar los rangos de los requerimientos del lado izquierdo que garantizan una solución factible.
+encontrar los rangos de los requerimientos del lado derecho que garantizan una solución factible.
+
+\begin{solution}
+
+
+La base del problema se compone de las variables $x_1,  s_2, x_4$, por lo tanto la solución óptima del problema es
+\begin{flalign*}
+  x_1 & = \nicefrac{25}{4} \\
+  s_2 & = \nicefrac{187}{4}\\
+  x_4 & = \nicefrac{23}{4} \\
+  Z_{\max} & = \nicefrac{305}{4}
+\end{flalign*}
+  
+  La matriz inversa de la base $\bm{B^{-1}}$ es
+
+  \[
+    \bm{B^{-1}} = %
+    \begin{bmatrix}
+      5/4&0&-1/8   \\[2mm]
+      - 29/4&1&5/8\\[2mm]  
+      - 1/4&0&1/8   
+    \end{bmatrix}
+  \]
+
+
+  El cálculo de $\Delta b_i$ se realiza relizando las siguientes operaciones:
+
+$\begin{bmatrix}
+        5/4&0&-1/8   \\[2mm]
+        - 29/4&1&5/8\\[2mm]  
+        - 1/4&0&1/8   
+    \end{bmatrix}
+\begin{bmatrix}
+  12 + \Delta b_1\\[2mm] 90 \\[2mm] 70\\
+\end{bmatrix}
+\geq
+\begin{bmatrix}
+  0 \\[2mm] 0 \\[2mm] 0\\
+\end{bmatrix}
+$
+
+$\begin{bmatrix}
+        5/4&0&-1/8   \\[2mm]
+        - 29/4&1&5/8\\[2mm]  
+        - 1/4&0&1/8   
+\end{bmatrix}
+\begin{bmatrix}
+  12 \\[2mm] 90 + \Delta b_2 \\[2mm] 70\\
+\end{bmatrix}
+\geq
+\begin{bmatrix}
+  0 \\[2mm] 0 \\[2mm] 0\\
+\end{bmatrix}
+$
+
+$\begin{bmatrix}
+        5/4&0&-1/8   \\[2mm]
+        - 29/4&1&5/8\\[2mm]  
+        - 1/4&0&1/8   
+\end{bmatrix}
+\begin{bmatrix}
+  12 \\[2mm] 90  \\[2mm] 70 + \Delta b_3\\
+\end{bmatrix}
+\geq
+\begin{bmatrix}
+  0 \\[2mm] 0 \\[2mm] 0\\
+\end{bmatrix}
+$
+\end{solution}
 
 \begin{checkboxes}
   \correctchoice  $ -5 \leq \delta_1 \leq \frac{187}{29};\quad \delta_2 \geq -\frac{187}{4};\quad -46 \leq \delta_3 \leq 50 $
