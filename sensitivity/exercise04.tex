@@ -1,7 +1,7 @@
 \documentclass[../main.tex]{subfiles}
 
 \newcommand{\tema}{\textbf{SENSITIVITY ANALYSIS}}
-\printanswers
+%\printanswers
 \begin{document}
 
 \input{header.tex}
@@ -11,7 +11,7 @@
 \begin{questions}
 \question % Gupta EXERCISES 6.6-28
 
-Consider the problem
+Considere el siguiente problema
 
 \[ \max Z = 3x_1  + 2x_2 + 5x_3\]
 
@@ -33,7 +33,14 @@ Consider the problem
   $x_1, x_2, x_3 \geq 0$
   \par}
 
-The optimal solution to this problem is given by the following table:
+
+Encuentre la solución óptima. Suponga que los coeficientes del lado izquierdo (coeficientes tecnológicos) de  la columna $x_1$ cambian de $[1 \;,\; 3 \;,\; 1]^{T}$ a $[1 \;,\; 1 \;,\; 6]^{T}$ en la matriz inicial y los coeficientes de $x_2$ and $x_3$ en la función objetivo cambian de $[2\;, \; 5]$ a $[1\;,\; 3]$ encuentre la nueva solución óptima.
+\vspace{5mm}
+
+
+\begin{solution}{}
+
+  The optimal solution to this problem is given by the following table:
 
 {\centering
   \begin{tabular}{crrrrrrrr}
@@ -52,11 +59,6 @@ The optimal solution to this problem is given by the following table:
   \end{tabular}
   \par}
 
-Suppose that the constraint coefficients of $x_1$-colum are changed from $[1 \;,\; 3 \;,\; 1]^{T}$ to $[1 \;,\; 1 \;,\; 6]^{T}$ in the starting matrix and profit coefficients of $x_2$ and $x_3$ are changed from $[2\;, \; 5]$ to $[1\;,\; 3]$ find the new optimal solution.
-\vspace{5mm}
-
-
-\begin{solution}{}
   Las particiones del problema (en forma estándar) son las siguientes:
   
   {\centering
@@ -181,7 +183,7 @@ note que $c_j - Z_j \leq 0$ por lo que la solución es óptima.
 
 % ========================================
 \question % Gupta EXERCISES 6.6-32
-Consider the following L.P.P.:
+Considere el siguiente modelo de programación lineal.
 
 \[ \max Z = 20x_1 + 10x_2 \]
 
@@ -204,21 +206,22 @@ Consider the following L.P.P.:
   \par}
 
 
-
-Find the optimal solution. Also determine the optimal solution if $x_2$-column changes from %
+Encuentre la solución óptima. Si la columna $x_2$ cambia de  %
 $
 \begin{bmatrix}
   2\\
   2\\
 \end{bmatrix}
 $
-to %
+a %
 $
 \begin{bmatrix}
   2\\
   1\\
 \end{bmatrix}
 $
+
+Encuentre la nueva solución óptima
 
 \begin{solution}{}
   La tabla óptima es la siguiente:
