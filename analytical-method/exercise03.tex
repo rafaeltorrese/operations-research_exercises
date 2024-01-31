@@ -1,0 +1,34 @@
+\documentclass[../main.tex]{subfiles}
+
+\newcommand{\tema}{\textbf{Analytical Method}}
+%\printanswers
+\begin{document}
+
+\input{../header.tex}
+
+\begin{questions}
+\question % 
+
+\[\min Z  = 2x_1 + x_2 + 3x_3    \]
+
+{\centering
+sujeto a 
+
+\sysdelim..%
+\sysalign{r,r}%
+\systeme[x_1x_2x_3]%
+{%
+x_1 + 2x_2 - x_3 \geq 4 ,
+3x_1 - x_2 + 2x_3 \leq 7 ,
+}
+
+\vspace{3mm}
+$x_1, x_2, x_3\geq 0$
+\par}
+
+
+
+
+
+\end{questions}
+\end{document}
